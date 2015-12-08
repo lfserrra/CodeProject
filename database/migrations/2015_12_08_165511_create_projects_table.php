@@ -18,10 +18,10 @@ class CreateProjectsTable extends Migration {
             $table->integer('owner_id')->unsigned();
             $table->integer('client_id')->unsigned();
             $table->string('name');
-            $table->string('description');
-            $table->string('progress');
-            $table->string('status');
-            $table->dateTime('due_date');
+            $table->text('description');
+            $table->smallInteger('progress')->unsigned();
+            $table->smallInteger('status')->unsigned();
+            $table->date('due_date');
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
