@@ -32,3 +32,16 @@ $factory->define(CodeProject\Entities\Client::class, function ($faker)
         'obs'         => $faker->sentence,
     ];
 });
+
+$factory->define(CodeProject\Entities\Project::class, function ($faker)
+{
+    return [
+        'owner_id'    => rand(1, 5),
+        'client_id'   => rand(1, 10),
+        'name'        => $faker->name,
+        'description' => $faker->sentence,
+        'progress'    => $faker->name,
+        'status'      => $faker->name,
+        'due_date'    => '2018-11-10',
+    ];
+});

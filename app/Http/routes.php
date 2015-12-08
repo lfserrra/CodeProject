@@ -16,8 +16,20 @@ Route::get('/', function ()
     return view('welcome');
 });
 
-Route::get('client', 'ClientsController@index');
-Route::post('client', 'ClientsController@store');
-Route::get('client/{id}', 'ClientsController@show');
-Route::put('client/{id}', 'ClientsController@update');
-Route::delete('client/{id}', 'ClientsController@destroy');
+Route::group(['prefix' => 'client'], function ()
+{
+    Route::get('', 'ClientsController@index');
+    Route::post('', 'ClientsController@store');
+    Route::get('{id}', 'ClientsController@show');
+    Route::put('{id}', 'ClientsController@update');
+    Route::delete('{id}', 'ClientsController@destroy');
+});
+
+Route::group(['prefix' => 'project'], function ()
+{
+    Route::get('', 'ProjectsController@index');
+    Route::post('', 'ProjectsController@store');
+    Route::get('{id}', 'ProjectsController@show');
+    Route::put('{id}', 'ProjectsController@update');
+    Route::delete('{id}', 'ProjectsController@destroy');
+});
