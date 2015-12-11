@@ -27,4 +27,9 @@ class Project extends Model {
     {
         return $this->belongsTo(\CodeProject\Entities\Client::class);
     }
+
+    public function notes()
+    {
+        return $this->hasMany(\CodeProject\Entities\ProjectNote::class);
+    }
 }
