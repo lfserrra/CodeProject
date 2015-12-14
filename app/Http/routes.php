@@ -45,6 +45,14 @@ Route::group(['prefix' => 'project'], function ()
         Route::delete('{taskId}', 'ProjectTasksController@destroy');
     });
 
+    Route::group(['prefix' => '{id}/members'], function ()
+    {
+        Route::get('', 'ProjectsController@members');
+        Route::post('{userId}', 'ProjectsController@addMember');
+        Route::delete('{membersId}', 'ProjectsController@removeMember');
+        Route::get('{userId}/isMember', 'ProjectsController@isMember');
+    });
+
     Route::get('', 'ProjectsController@index');
     Route::post('', 'ProjectsController@store');
     Route::get('{id}', 'ProjectsController@show');

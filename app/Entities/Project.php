@@ -32,4 +32,14 @@ class Project extends Model {
     {
         return $this->hasMany(\CodeProject\Entities\ProjectNote::class);
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(\CodeProject\Entities\ProjectTask::class);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(\CodeProject\Entities\ProjectMembers::class);
+    }
 }

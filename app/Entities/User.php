@@ -37,4 +37,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany(\CodeProject\Entities\Project::class);
     }
+
+    public function members()
+    {
+        return $this->hasMany(\CodeProject\Entities\ProjectMembers::class);
+    }
 }
