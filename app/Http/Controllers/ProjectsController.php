@@ -39,7 +39,7 @@ class ProjectsController extends Controller {
 
     public function members($id)
     {
-        return $this->membersRepository->with('user')->findWhere(['project_id' => $id]);
+        return $this->repository->find($id)->members;
     }
 
     public function addMember($id, $userId)

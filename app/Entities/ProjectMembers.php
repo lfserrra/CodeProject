@@ -14,14 +14,4 @@ class ProjectMembers extends Model implements Transformable {
         'project_id',
         'user_id',
     ];
-
-    public function project()
-    {
-        return $this->belongsTo(\CodeProject\Entities\Project::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(\CodeProject\Entities\User::class);
-    }
 }
