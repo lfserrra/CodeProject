@@ -64,9 +64,4 @@ class ProjectService extends AbstractService {
             ];
         }
     }
-
-    public function isMember($id, $userId)
-    {
-        return count($this->membersRepository->findWhere(['project_id' => $id, 'user_id' => $userId]));
-    }
 }
