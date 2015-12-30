@@ -18,6 +18,8 @@ class ProjectTask extends Model implements Transformable
         'status'
     ];
 
+    protected $dates = ['start_date', 'due_date'];
+
     public function project()
     {
         return $this->belongsTo(\CodeProject\Entities\Project::class);

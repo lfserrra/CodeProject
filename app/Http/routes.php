@@ -54,5 +54,13 @@ Route::group(['middleware' => 'oauth'], function ()
             Route::delete('{membersId}', 'ProjectsController@removeMember');
             Route::get('{userId}/isMember', 'ProjectsController@isMember');
         });
+
+        Route::group(['prefix' => '{id}/file'], function ()
+        {
+            Route::get('', 'ProjectFilesController@index');
+            Route::post('', 'ProjectFilesController@store');
+            Route::get('{fileId}', 'ProjectFilesController@show');
+            Route::delete('{fileId}', 'ProjectFilesController@destroy');
+        });
     });
 });

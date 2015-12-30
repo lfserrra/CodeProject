@@ -3,6 +3,7 @@
 namespace CodeProject\Http\Controllers;
 
 use CodeProject\Http\Requests;
+use CodeProject\Presenters\ProjectMemberPresenter;
 use CodeProject\Repositories\ProjectMembersRepository;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
@@ -107,7 +108,7 @@ class ProjectsController extends Controller {
      */
     public function members($id)
     {
-        return $this->repository->find($id)->members;
+        return $this->repository->skipPresenter()->find($id)->members;
     }
 
     /**

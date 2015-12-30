@@ -42,4 +42,9 @@ class Project extends Model {
     {
         return $this->belongsToMany(\CodeProject\Entities\User::class, 'project_members');
     }
+
+    public function files()
+    {
+        return $this->hasMany(\CodeProject\Entities\ProjectFile::class);
+    }
 }
