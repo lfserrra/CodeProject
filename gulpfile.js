@@ -21,14 +21,14 @@ config.build_path_js = config.build_path + '/js';
 config.build_vendor_path_js = config.build_path_js + '/vendor';
 config.vendor_path_js = [
     config.bower_path + '/jquery/dist/jquery.min.js',
-    config.bower_path + '/bootstrap/dist/bootstrap.min.js',
+    config.bower_path + '/bootstrap/dist/js/bootstrap.min.js',
     config.bower_path + '/angular/angular.min.js',
     config.bower_path + '/angular-route/angular-route.min.js',
     config.bower_path + '/angular-resource/angular-resource.min.js',
     config.bower_path + '/angular-animate/angular-animate.min.js',
     config.bower_path + '/angular-messages/angular-messages.min.js',
     config.bower_path + '/angular-bootstrap/ui-bootstrap.min.js',
-    config.bower_path + '/angular-strap/dist/modules/ui-bootstrap.min.js',
+    config.bower_path + '/angular-strap/dist/modules/navbar.min.js',
 ];
 
 gulp.task('copy-styles', function () {
@@ -55,6 +55,14 @@ gulp.task('copy-scripts', function () {
 
 gulp.task('clear-build-folder', function(){
     clean.sync(config.build_path);
+});
+
+gulp.task('default', ['clear-build-folder'], function(){
+    elixir(function(mix){
+        mix.styles(config.vendor_path_css.concat([config.assets_path + '/css/**/*.css']),'public/css/all.css', config.assets_path);
+        mix.scripts(config.vendor_path_js.concat([config.assets_path + '/js/**/*.js']),'public/js/all.js', config.assets_path);
+        mix.version(['css/all.css', 'js/all.js']);
+    });
 });
 
 gulp.task('watch-dev', ['clear-build-folder'], function () {
