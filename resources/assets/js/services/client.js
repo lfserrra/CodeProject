@@ -5,7 +5,9 @@ angular.module('app.services')
         function ($resource, appConfig) {
             return $resource(appConfig.baseUrl + '/client/:id',
                 {id: '@id'}, {
-                    query: {isArray: false}
+                    query: {isArray: false},
+                    update: {method: 'PUT'},
+                    delete: {method: 'DELETE'}
                 }
             );
         }
