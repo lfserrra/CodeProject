@@ -25,21 +25,33 @@ app.config(
                     templateUrl: 'build/views/login.html',
                     controller: 'LoginController'
                 }).when('/home', {
-                    templateUrl: 'build/views/home.html',
-                    controller: 'HomeController'
-                }).when('/clients', {
-                    templateUrl: 'build/views/client/list.html',
-                    controller: 'ClientListController'
-                }).when('/clients/new', {
-                    templateUrl: 'build/views/client/new.html',
-                    controller: 'ClientNewController'
-                }).when('/clients/:id/edit', {
-                    templateUrl: 'build/views/client/edit.html',
-                    controller: 'ClientEditController'
-                }).when('/clients/:id/remove', {
-                    templateUrl: 'build/views/client/remove.html',
-                    controller: 'ClientRemoveController'
-                });
+                templateUrl: 'build/views/home.html',
+                controller: 'HomeController'
+            }).when('/clients', {
+                templateUrl: 'build/views/client/list.html',
+                controller: 'ClientListController'
+            }).when('/clients/new', {
+                templateUrl: 'build/views/client/new.html',
+                controller: 'ClientNewController'
+            }).when('/clients/:id/edit', {
+                templateUrl: 'build/views/client/edit.html',
+                controller: 'ClientEditController'
+            }).when('/clients/:id/remove', {
+                templateUrl: 'build/views/client/remove.html',
+                controller: 'ClientRemoveController'
+            }).when('/project/:id/note', {
+                templateUrl: 'build/views/projectNote/list.html',
+                controller: 'ProjectNoteListController'
+            }).when('/project/:id/note/new', {
+                templateUrl: 'build/views/projectNote/new.html',
+                controller: 'ProjectNoteNewController'
+            }).when('/project/:id/note/:noteId/edit', {
+                templateUrl: 'build/views/projectNote/edit.html',
+                controller: 'ProjectNoteEditController'
+            }).when('/project/:id/note/:noteId/remove', {
+                templateUrl: 'build/views/projectNote/remove.html',
+                controller: 'ProjectNoteRemoveController'
+            });
             OAuthProvider.configure({
                 baseUrl: appConfigProvider.config.baseUrl,
                 clientId: 'appid1',
