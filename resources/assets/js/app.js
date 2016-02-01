@@ -39,16 +39,16 @@ app.config(
             }).when('/clients/:id/remove', {
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
-            }).when('/project/:id/note', {
+            }).when('/project/:id/notes', {
                 templateUrl: 'build/views/projectNote/list.html',
                 controller: 'ProjectNoteListController'
-            }).when('/project/:id/note/new', {
+            }).when('/project/:id/notes/new', {
                 templateUrl: 'build/views/projectNote/new.html',
                 controller: 'ProjectNoteNewController'
-            }).when('/project/:id/note/:noteId/edit', {
+            }).when('/project/:id/notes/:noteId/edit', {
                 templateUrl: 'build/views/projectNote/edit.html',
                 controller: 'ProjectNoteEditController'
-            }).when('/project/:id/note/:noteId/remove', {
+            }).when('/project/:id/notes/:noteId/remove', {
                 templateUrl: 'build/views/projectNote/remove.html',
                 controller: 'ProjectNoteRemoveController'
             });

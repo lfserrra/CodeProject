@@ -12,7 +12,7 @@ angular.module('app.controllers')
                     {id: $scope.projectNote.project_id, noteId: $scope.projectNote.id},
                     $scope.projectNote,
                     function () {
-                        $location.path('/project/'+$routeParams.id+'/note');
+                        $location.path('/project/'+$routeParams.id+'/notes');
                     },
                     function () {
                         alert('Erro!');
