@@ -4,9 +4,7 @@ angular.module('app.controllers')
         '$scope', '$location', '$routeParams', 'ProjectNote',
         function ($scope, $location, $routeParams, ProjectNote) {
 
-            ProjectNote.get({id: $routeParams.id, noteId: $routeParams.noteId}, function(response){
-                $scope.projectNote = response.data[0];
-            });
+            $scope.projectNote = ProjectNote.get({id: $routeParams.id, noteId: $routeParams.noteId});
 
             $scope.save = function () {
                 if ($scope.form.$valid) {

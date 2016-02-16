@@ -3,13 +3,8 @@ angular.module('app.controllers')
     [
         '$scope', '$location', '$routeParams', 'Client',
         function ($scope, $location, $routeParams, Client) {
-            //$scope.client = Client.get(
-            //    {id: $routeParams.id}
-            //);
 
-            Client.get({id: $routeParams.id}, function (response) {
-                $scope.client = response.data;
-            });
+            $scope.client = Client.get({id: $routeParams.id});
 
             $scope.save = function () {
                 if ($scope.form.$valid) {

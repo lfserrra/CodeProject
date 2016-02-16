@@ -23,7 +23,7 @@ Route::post('oauth/access_token', function ()
 
 Route::group(['middleware' => 'oauth'], function ()
 {
-
+    Route::get('user/authenticated', 'UsersController@authenticated');
     Route::resource('client', 'ClientsController', ['except' => ['create', 'edit']]);
 
     Route::resource('project', 'ProjectsController', ['except' => ['create', 'edit']]);

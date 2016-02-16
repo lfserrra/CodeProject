@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     @if(Config::get('app.debug'))
-        <link href="{{ asset('build/css/vendor/bootstrap.min.css') }}" rel="stylesheet"/>
-        <link href="{{ asset('build/css/vendor/bootstrap-theme.min.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/css/app.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/css/components.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/css/font-awesome.css') }}" rel="stylesheet"/>
     @else
         <link href="{{ elixir('css/all.css') }}" rel="stylesheet"/>
     @endif
@@ -82,17 +84,27 @@
     {{--CONTROLLERS--}}
     <script src="{{ asset('build/js/controllers/login.js') }}"></script>
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
+
     <script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
+
+    <script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectRemove.js') }}"></script>
+
     <script src="{{ asset('build/js/controllers/projectNote/projectNoteList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/projectNote/projectNoteNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/projectNote/projectNoteEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/projectNote/projectNoteRemove.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/projectNote/projectNoteShow.js') }}"></script>
 
     {{--SERVICES--}}
+    <script src="{{ asset('build/js/services/user.js') }}"></script>
     <script src="{{ asset('build/js/services/client.js') }}"></script>
+    <script src="{{ asset('build/js/services/project.js') }}"></script>
     <script src="{{ asset('build/js/services/projectNote.js') }}"></script>
 @else
     <script src="{{ elixir('js/all.js') }}"></script>

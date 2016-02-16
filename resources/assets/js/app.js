@@ -18,8 +18,22 @@ app.provider('appConfig', function () {
 
 app.config(
     [
-        '$routeProvider', 'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
-        function ($routeProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
+        '$routeProvider', '$httpProvider', 'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
+        function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
+            $httpProvider.defaults.transformResponse = function (data, headers) {
+                var headersGetter = headers();
+                if (headersGetter['content-type'] == 'application/json' || headersGetter['content-type'] == 'text/json') {
+                    var dataJson = JSON.parse(data);
+
+                    if (dataJson.hasOwnProperty('data')) {
+                        return dataJson.data;
+                    }
+                    return dataJson;
+                }
+
+                return data;
+            };
+
             $routeProvider
                 .when('/login', {
                     templateUrl: 'build/views/login.html',
@@ -39,6 +53,18 @@ app.config(
             }).when('/clients/:id/remove', {
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
+            }).when('/projects', {
+                templateUrl: 'build/views/project/list.html',
+                controller: 'ProjectListController'
+            }).when('/projects/new', {
+                templateUrl: 'build/views/project/new.html',
+                controller: 'ProjectNewController'
+            }).when('/projects/:id/edit', {
+                templateUrl: 'build/views/project/edit.html',
+                controller: 'ProjectEditController'
+            }).when('/projects/:id/remove', {
+                templateUrl: 'build/views/project/remove.html',
+                controller: 'ProjectRemoveController'
             }).when('/project/:id/notes', {
                 templateUrl: 'build/views/projectNote/list.html',
                 controller: 'ProjectNoteListController'
@@ -51,6 +77,9 @@ app.config(
             }).when('/project/:id/notes/:noteId/remove', {
                 templateUrl: 'build/views/projectNote/remove.html',
                 controller: 'ProjectNoteRemoveController'
+            }).when('/project/:id/notes/:noteId/show', {
+                templateUrl: 'build/views/projectNote/show.html',
+                controller: 'ProjectNoteShowController'
             });
             OAuthProvider.configure({
                 baseUrl: appConfigProvider.config.baseUrl,

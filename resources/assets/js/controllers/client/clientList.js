@@ -3,9 +3,7 @@ angular.module('app.controllers')
     [
         '$scope', 'Client',
         function ($scope, Client) {
-            $scope.clients = Client.query(function(response){
-                $scope.clients = response.data;
-            });
+            $scope.clients = Client.query();
         }
     ]
 );
