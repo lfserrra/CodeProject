@@ -5,7 +5,7 @@ angular.module('app.services', ['ngResource']);
 
 app.provider('appConfig', function () {
     var config = {
-        baseUrl: 'http://curso.dev'
+        baseUrl: 'http://curso.dev:8080'
     };
 
     return {

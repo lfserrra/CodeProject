@@ -56,7 +56,7 @@
                             <label class="col-md-4 control-label">status</label>
 
                             <div class="col-md-6">
-                                <input type="number" class="form-control" name="status" ng-model="project.status" required>
+                                <select class="form-control" name="status" ng-model="project.status" ng-options="option.id_status as option.status for option in status" required></select>
                                 <div ng-messages="form.status.$error" class="help-block" ng-show="form.status.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                 </div>
